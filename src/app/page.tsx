@@ -28,7 +28,7 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/images/Design sem nome-4.png" alt="Mockup do eBook" className="ebook-image"/>
+            <img src="/images/ebooks-java.png" alt="Mockup do eBook" className="ebook-image"/>
           </div>
         </div>
       </section>

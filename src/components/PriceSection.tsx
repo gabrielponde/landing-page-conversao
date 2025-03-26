@@ -25,7 +25,7 @@ const PriceSection: React.FC = () => {
           <div className="price-book">
             <div className="book-cover">
               {/* Substitua pela imagem real do seu eBook */}
-              <img src="/images/Design sem nome-2.png" alt="Capa do eBook Java Mastery" />
+              <img src="/images/ebook-java.png" alt="Capa do eBook Java Mastery" />
             </div>
             
             <div className="price-details">
