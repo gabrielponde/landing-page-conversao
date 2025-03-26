@@ -1,4 +1,4 @@
-/* styles.css - Estilos Globais Modernos  */
+/* styles.css - Estilos Globais Modernos com fundo branco */
 :root {
   --primary: #FF6D00;       /* Laranja vibrante */
   --primary-dark: #E65100;  /* Laranja mais escuro */
@@ -17,33 +17,18 @@
   --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
 }
 
-
-/* Ajustes específicos para Safari no iOS */
-@supports (-webkit-touch-callout: none) {
-  .hero {
-    height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  -webkit-text-size-adjust: 100%; /* Previne ajuste de texto no iOS */
-}
-
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   color: var(--text);
-  background-color: var(--light);
+  background-color: var(--light); /* Fundo sempre branco */
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -175,17 +160,15 @@ img {
 
 /* Hero Section - Com gradiente animado */
 .hero {
-  height: 100svh;
-  min-height: -webkit-fill-available;
-  max-height: 100dvh;
-  padding: 0;
-  margin: 0;
+  height: auto;
+  min-height: 100vh;
+  padding: 4rem 2rem;
   background: var(--gradient);
   color: white;
   position: relative;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
 .hero::before {
@@ -200,7 +183,6 @@ img {
   z-index: 0;
 }
 
-
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -214,29 +196,22 @@ img {
 }
 
 .hero-content {
-  flex: 1;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: safe center;
+  flex-direction: row;
   align-items: center;
-  padding: max(env(safe-area-inset-top), 1rem) 1.5rem max(env(safe-area-inset-bottom), 1rem);
+  justify-content: space-between;
+  gap: 3rem;
   position: relative;
   z-index: 1;
-  gap: 2rem;
 }
-
 
 .hero-text {
-  width: 100%;
-  text-align: center;
+  flex: 1;
   animation: fadeInUp 0.8s ease-out;
-  position: relative;
-  z-index: 1;
 }
-
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -244,20 +219,18 @@ img {
 }
 
 .hero h1 {
-  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1.5rem;
   color: white;
-  line-height: 1.2;
+  line-height: 1.1;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .subheading {
-  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-size: 1.25rem;
   margin-bottom: 2rem;
   opacity: 0.9;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .price-details {
@@ -299,24 +272,13 @@ img {
   100% { transform: translateY(0px); }
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: float 6s ease-in-out infinite;
-}
-
 .ebook-image {
-  width: 100%;
-  max-height: min(60vh, 450px);
+  max-height: 450px;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
-  object-fit: contain;
+  transform-style: preserve-3d;
 }
-
 
 .ebook-image:hover {
   transform: scale(1.05) rotateY(10deg);
@@ -903,14 +865,125 @@ section h2::after {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Previne o zoom em inputs no iOS */
-@media screen and (max-width: 767px) {
-  input, select, textarea {
-    font-size: 16px !important;
+/* Responsividade */
+@media (max-width: 1024px) {
+  .price-book {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .price-details {
+    text-align: center;
+  }
+  
+  .benefits-list {
+    display: inline-block;
+    text-align: left;
   }
 }
 
-/* Responsividade */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  
+  .hero-text {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .price-details {
+    text-align: center;
+  }
+  
+  .benefits-list {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+  
+  .timer {
+    flex-wrap: wrap;
+  }
+  
+  .timer-item {
+    min-width: 80px;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .price-book {
+    padding: 2rem 1.5rem;
+  }
+  
+  .faq-question {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .footer {
+    padding: 2rem 0;
+  }
+}
+
+/* Animações extras */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Efeito de flutuação para elementos importantes */
+.float-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Efeito de brilho para destaques */
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px rgba(255, 109, 0, 0.5); }
+  to { box-shadow: 0 0 20px rgba(255, 109, 0, 0.8); }
+}
+
+/* Tooltip para informações adicionais */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 10;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividade - Ajustes de Margem */
 @media (max-width: 1024px) {
   .price-book {
     flex-direction: column;
@@ -932,15 +1005,13 @@ section h2::after {
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
-    padding: max(env(safe-area-inset-top), 1rem) 1rem max(env(safe-area-inset-bottom), 1rem);
+    padding: 0 2rem; /* Aumentei o padding */
   }
   
-  .hero-text, .hero-image {
-    width: 100%;
-  }
-  
-  .ebook-image {
-    max-height: 50vh;
+  .hero-text {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem; /* Adicionado padding */
   }
   
   .price-details {
@@ -980,22 +1051,6 @@ section h2::after {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 6rem 1rem 2rem;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  .subheading {
-    font-size: 1rem;
-  }
-  
-  .ebook-image {
-    max-height: 300px;
-  }
-
   .cta-button {
     padding: 0.9rem 1.8rem;
     font-size: 0.9rem;
@@ -1034,101 +1089,4 @@ section h2::after {
     margin: 2rem 1rem; /* Margem lateral reduzida */
     padding: 1.5rem 1rem; /* Padding ajustado */
   }
-}
-
-/* Animações */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Efeito de flutuação para elementos importantes */
-.float-element {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Efeito de brilho para destaques */
-.glow {
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 5px rgba(255, 109, 0, 0.5); }
-  to { box-shadow: 0 0 20px rgba(255, 109, 0, 0.8); }
-}
-
-/* Ajustes específicos para iPhone em landscape */
-@media screen and (orientation: landscape) and (max-height: 600px) {
-  .hero {
-    height: auto;
-    min-height: 100svh;
-  }
-  
-  .hero-content {
-    flex-direction: row;
-    align-items: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  .hero-text, .hero-image {
-    flex: 1;
-  }
-  
-  .ebook-image {
-    max-height: 60vh;
-  }
-}
-
-/* Correção para Safari < 15.4 */
-@supports not (height: 100svh) {
-  .hero {
-    height: -webkit-fill-available;
-  }
-}
-
-/* Ajustes para telas muito pequenas */
-@media (max-height: 600px) {
-  .hero h1 {
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .subheading {
-    font-size: 0.9rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .ebook-image {
-    max-height: 40vh !important;
-  }
-}
-
-/* Tooltip para informações adicionais */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.tooltip:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--dark);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  z-index: 10;
-  margin-bottom: 0.5rem;
 }
