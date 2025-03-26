@@ -913,6 +913,28 @@ section h2::after {
     min-width: 80px;
     padding: 1rem 0.5rem;
   }
+
+  .price-details {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  span .old-price {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+  
+  .price-value {
+    margin: 0.5rem auto;
+  }
+
+  .faq-question {
+    padding: 1.2rem;
+    font-size: 1rem;
+    color: var(--text) !important; 
+  }
 }
 
 @media (max-width: 480px) {
@@ -921,22 +943,36 @@ section h2::after {
     font-size: 0.9rem;
   }
   
-  .hero {
-    padding: 3rem 0;
+  .hero-content {
+    padding: 1.5rem 1rem;
   }
   
-  .price-book {
-    padding: 2rem 1.5rem;
+  .ebook-image {
+    max-height: 280px;
+  }
+  
+  .price-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .old-price, .price-value {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
   
   .faq-question {
     padding: 1.2rem;
     font-size: 1rem;
+    color: var(--text) !important; 
   }
   
   .footer {
     padding: 2rem 0;
   }
+
 }
 
 /* Animações extras */
