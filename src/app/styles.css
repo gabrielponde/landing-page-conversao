@@ -912,17 +912,20 @@ section h2::after {
 
   .price-details {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
+    margin: 1.5rem auto;
     padding: 0 1rem; /* Adicionado padding para evitar que encoste nas bordas */
   }
   
   .old-price {
     text-align: center;
     margin-right: 0;
+    flex: 0 0 100%; /* Faz ocupar toda a linha */
   }
   
   .price-value {
@@ -1053,12 +1056,7 @@ section h2::after {
     margin-bottom: 2rem;
     padding: 0 1rem; /* Adicionado padding */
   }
-  
-  .price-details {
-    text-align: center;
-    margin: 0 1.5rem; /* Adicionado margem */
-  }
-  
+
   .benefits-list {
     display: inline-block;
     text-align: left;
@@ -1088,6 +1086,33 @@ section h2::after {
   .comparison {
     margin: 1rem; /* Margem uniforme para cards */
   }
+
+  .price-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center;
+    width: 100%;
+    margin: 1.5rem auto;
+    padding: 0;
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .old-price, 
+  .price-value {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .old-price {
+    order: 1; /* Garante que o preço antigo fique em cima */
+  }
+  
+  .price-value {
+    order: 2; /* Garante que o preço atual fique embaixo */
+  }
 }
 
 @media (max-width: 480px) {
@@ -1104,6 +1129,32 @@ section h2::after {
   .price-book {
     padding: 2rem 1rem; /* Ajuste de padding */
     margin: 2rem 1rem; /* Adicionado margem */
+  }
+
+  .price-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .old-price, 
+  .price-value {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto; /* Centraliza os elementos */
+  }
+  
+  /* Remove qualquer margem ou padding que possa estar empurrando para a direita */
+  .price-book {
+    padding: 0;
+    margin: 0 auto;
+  }
+  
+  /* Garante que o container principal esteja centralizado */
+  .hero-text, 
+  .hero-content {
+    padding: 0 1rem;
+    margin: 0 auto;
+    text-align: center;
   }
   
   .faq-question {
