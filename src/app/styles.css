@@ -887,14 +887,18 @@ section h2::after {
 
 @media (max-width: 768px) {
   .hero-content {
-    flex-direction: column;
-    padding: 0 2rem; /* Aumentei o padding */
+    flex-direction: row;
+    gap: 3rem;
+    padding: 0 2rem;
   }
   
   .hero-text {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 0 1rem; /* Adicionado padding */
+    text-align: left;
+    width: 50%;
+  }
+  
+  .hero-image {
+    width: 50%;
   }
   
   .price-details {
@@ -934,6 +938,22 @@ section h2::after {
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 6rem 1rem 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .subheading {
+    font-size: 1rem;
+  }
+  
+  .ebook-image {
+    max-height: 300px;
+  }
+
   .cta-button {
     padding: 0.9rem 1.8rem;
     font-size: 0.9rem;
@@ -975,9 +995,15 @@ section h2::after {
 }
 
 /* Animações extras */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* Efeito de flutuação para elementos importantes */
