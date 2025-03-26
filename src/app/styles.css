@@ -920,7 +920,7 @@ section h2::after {
     width: 100%;
   }
   
-  span .old-price {
+  .old-price {
     width: 100%;
     text-align: center;
     margin-right: 0;
