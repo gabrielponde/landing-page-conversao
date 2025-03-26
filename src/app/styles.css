@@ -160,11 +160,16 @@ img {
 
 /* Hero Section - Com gradiente animado */
 .hero {
-  padding: 5rem 0;
+  height: 100vh;
+  min-height: 600px;
+  padding: 0;
   background: var(--gradient);
   color: white;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero::before {
@@ -192,15 +197,16 @@ img {
 }
 
 .hero-content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
   position: relative;
   z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem; /* Adicionei padding lateral */
 }
 
 .hero-text {
