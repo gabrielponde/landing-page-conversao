@@ -912,20 +912,17 @@ section h2::after {
 
   .price-details {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
-    margin: 1.5rem auto;
     padding: 0 1rem; /* Adicionado padding para evitar que encoste nas bordas */
   }
   
   .old-price {
     text-align: center;
     margin-right: 0;
-    flex: 0 0 100%; /* Faz ocupar toda a linha */
   }
   
   .price-value {
