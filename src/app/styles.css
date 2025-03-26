@@ -17,6 +17,15 @@
   --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
 }
 
+/* Ajustes específicos para Safari no iOS */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -161,7 +170,9 @@ img {
 /* Hero Section - Com gradiente animado */
 .hero {
   height: 100vh;
-  min-height: 600px;
+  min-height: -webkit-fill-available; 
+  max-height: 100dvh;
+  box-sizing: border-box;
   padding: 0;
   background: var(--gradient);
   color: white;
@@ -207,6 +218,10 @@ img {
   gap: 3rem;
   position: relative;
   z-index: 1;
+  padding-top: constant(safe-area-inset-top); /* Para versões antigas */
+  padding-top: env(safe-area-inset-top); /* Para versões novas */
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .hero-text {
@@ -864,6 +879,13 @@ section h2::after {
 .footer-content p {
   margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* Previne o zoom em inputs no iOS */
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Responsividade */
